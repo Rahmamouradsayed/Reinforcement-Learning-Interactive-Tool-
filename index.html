@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL Interactive Learning Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reinforcement Learning Interactive Tool</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="section">
+                    <h3>Environment</h3>
+                    <select id="environment">
+                        <option value="gridworld">GridWorld</option>
+                        <option value="mountaincar">MountainCar</option>
+                    </select>
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Choose the environment where the agent will learn. Different environments support different algorithms.</span>
+                    </div>
+                    <div id="compatibility-message"></div>
+                </div>
+
+                <div class="section">
+                    <h3>Algorithm</h3>
+                    <select id="algorithm">
+                        <option value="value-iteration">Value Iteration</option>
+                        <option value="policy-iteration">Policy Iteration</option>
+                        <option value="monte-carlo">Monte Carlo</option>
+                        <option value="td">TD Learning</option>
+                        <option value="sarsa">SARSA</option>
+                        <option value="q-learning">Q-Learning</option>
+                    </select>
+                    <div class="tooltip">?
+                        <span class="tooltiptext">Select the RL algorithm to use for training. Only compatible algorithms are shown for each environment.</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Parameters</h3>
+                    
+                    <div id="param-explanation"></div>
+                    
+                    <div class="param-container" data-param="gamma">
+                        <label>Discount Factor (γ): <span id="gamma-value">0.9</span></label>
+                        <input type="range" id="gamma" min="0" max="1" step="0.1" value="0.9">
+                    </div>
+                    
+                    <div class="param-container" data-param="alpha">
+                        <label>Learning Rate (α): <span id="alpha-value">0.1</span></label>
+                        <input type="range" id="alpha" min="0" max="1" step="0.05" value="0.1">
+                    </div>
+                    
+                    <div class="param-container" data-param="epsilon">
+                        <label>Epsilon (ε): <span id="epsilon-value">0.1</span></label>
+                        <input type="range" id="epsilon" min="0" max="1" step="0.05" value="0.1">
+                    </div>
+                    
+                    <div class="param-container" data-param="nsteps">
+                        <label>N-Steps: <span id="nsteps-value">3</span></label>
+                        <input type="range" id="nsteps" min="1" max="10" step="1" value="3">
+                    </div>
+                    
+                    <div class="param-container" data-param="episodes">
+                        <label>Episodes: <span id="episodes-value">100</span></label>
+                        <input type="range" id="episodes" min="10" max="500" step="10" value="100">
+                    </div>
+                </div>
+
+                <div class="section buttons">
+                    <button id="train-btn" class="btn btn-primary">Train Agent</button>
+                    <button id="step-btn" class="btn btn-secondary">Step</button>
+                    <button id="run-btn" class="btn btn-success">Run Policy</button>
+                    <button id="reset-btn" class="btn btn-danger">Reset</button>
+                </div>
+
+                <div class="section">
+                    <h3>Stats</h3>
+                    <div class="stats">
+                        <div>Episode: <span id="episode-count">0</span></div>
+                        <div>Steps: <span id="step-count">0</span></div>
+                        <div>Reward: <span id="total-reward">0.00</span></div>
+                        <div>Status: <span id="status">Ready</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Area -->
+            <div class="visualization">
+                <div class="canvas-container">
+                    <h3>Environment Visualization</h3>
+                    <canvas id="env-canvas" width="500" height="500"></canvas>
+                </div>
+
+                <div class="charts">
+                    <div class="chart-container">
+                        <h3>Value Function</h3>
+                        <canvas id="value-canvas" width="500" height="300"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Reward per Episode</h3>
+                        <canvas id="reward-canvas" width="500" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Algorithm Explanation</h3>
+            <div id="algorithm-info">
+                <p><strong>Value Iteration:</strong> Iteratively updates value estimates for each state by considering the maximum expected value over all possible actions.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/environments.js"></script>
+    <script src="js/algorithms.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
