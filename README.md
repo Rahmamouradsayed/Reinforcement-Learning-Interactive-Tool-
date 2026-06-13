@@ -1,4 +1,5 @@
-# Interactive Reinforcement Learning Toolkit
+# Interactive Reinforcement Learning Tool
+
 
 ## Project Overview
 This project implements multiple reinforcement learning algorithms in a unified environment to analyze and compare different learning strategies. It includes both model-based and model-free methods for learning optimal policies through interaction with an environment.
