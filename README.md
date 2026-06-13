@@ -29,7 +29,6 @@ An agent learns optimal behavior by interacting with an environment and improvin
 - Performance comparison across methods  
 
 ## Tech Stack
-- JavaScript (ES6)  
 - Reinforcement Learning  
 - Custom Environment API  
 
