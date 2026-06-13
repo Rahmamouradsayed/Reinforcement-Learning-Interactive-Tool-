@@ -1,9 +1,7 @@
 Interactive Reinforcement Learning Toolkit
 Project Description
 
-This project is an interactive reinforcement learning framework that implements and compares multiple reinforcement learning algorithms within a custom environment. It demonstrates both model-based and model-free approaches, allowing analysis of learning behavior, policy optimization, and value estimation.
-
-The toolkit is designed for educational and experimental purposes to help understand how different reinforcement learning methods perform under the same conditions.
+This project implements multiple reinforcement learning algorithms in a single framework to study and compare their behavior in the same environment. It supports both model-based and model-free methods and focuses on learning optimal policies through interaction with an environment.
 
 Implemented Algorithms
 Value Iteration
@@ -12,39 +10,32 @@ Monte Carlo Control
 Temporal Difference Learning
 Q-Learning
 SARSA
-Features
-Implementation of fundamental reinforcement learning algorithms from scratch
-Support for both model-based and model-free learning approaches
-Epsilon-greedy strategy for exploration and exploitation balance
-Episode-based training for sequential decision making
-Policy extraction and evaluation
-State-value and action-value function estimation
-Modular design compatible with custom environments
-System Overview
+Core Idea
 
-The framework interacts with a reinforcement learning environment through the following components:
+The system trains an agent to make decisions by learning from rewards. Each algorithm updates either value functions or Q-values to improve the policy over time until it reaches an optimal or near-optimal strategy.
 
-State representation using structured keys
-Action selection based on policy or exploration strategies
-Reward-based learning updates
-Iterative improvement of value functions and policies
-Training Process
-
-Each algorithm follows a structured learning process:
-
-Initialize value functions or Q-tables
-Interact with the environment through episodes or iterations
-Update values based on reward feedback and future estimates
-Improve policy based on updated value functions
-Repeat until convergence or maximum iterations are reached
+How It Works
+Initialize states, values, or Q-tables
+Interact with the environment step by step or through episodes
+Receive rewards after each action
+Update values based on the algorithm logic
+Improve the policy using learned values
+Repeat until convergence or max iterations
+Key Features
+Multiple RL algorithms in one system
+Support for both value-based and policy-based learning
+Epsilon-greedy exploration for randomness
+Episode-based training for learning from experience
+Policy extraction after training
+Value and Q-function estimation
 Output
 
-The system generates:
+After training, the system provides:
 
-Learned value functions for each state
-Optimal or improved policies for each algorithm
-Q-tables for model-free methods
-Performance comparison across different reinforcement learning techniques
-Objective
+Optimal or learned policy for each algorithm
+State-value function (V-values)
+Action-value function (Q-values for model-free methods)
+Comparison between different learning approaches
+Goal of the Project
 
-The main objective of this project is to provide a clear, interactive, and comparative implementation of reinforcement learning algorithms to better understand their behavior, strengths, and differences in solving decision-making problems.
+To understand and compare how different reinforcement learning algorithms learn and perform under the same environment and conditions.
